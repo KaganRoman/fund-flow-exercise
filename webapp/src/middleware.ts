@@ -1,6 +1,8 @@
-import type { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-    // app should redirect to /dashboard by default
-    return
+    if (request.nextUrl.pathname === '/') {
+        return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+    return NextResponse.next();
 }
