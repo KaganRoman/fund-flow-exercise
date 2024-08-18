@@ -33,7 +33,7 @@ You can familiarize yourself with the [React web app template](/webapp) we prepa
 Implement an API server that will serve data for the fund flow graph page.
 
 - No need to setup a real database to hold the data, please use this [data](/server/data.json)
-- you need to implement the [route](/server/api/v1/funding/graph.py), please use paydentic.
+- you need to implement the [route](/server/api/v1/funding/graph.py), please use pydentic.
 
 the code should be written with typing.
 
