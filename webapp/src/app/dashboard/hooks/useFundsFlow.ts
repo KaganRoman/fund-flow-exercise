@@ -14,17 +14,17 @@ type FundsFlowData = {
 }
 
 const convert2FundsFlowData = (data: FundingResData): FundsFlowData => {
-    const nodesDict: Object = data.edges.reduce((acc, edge) => {
+    const nodesDict: Record<string, Node> = data.edges.reduce((acc, edge) => {
         acc[edge.source.address] = {
             id: edge.source.address,
             data: edge.source,
             type: NODE_TYPES.FUND_NODE,
-        } as Node;
+        };
         acc[edge.dest.address] = {
             id: edge.dest.address,
             data: edge.dest,
             type: NODE_TYPES.FUND_NODE,
-        } as Node;
+        };
         return acc;
     }, {});
 
@@ -36,7 +36,7 @@ const convert2FundsFlowData = (data: FundingResData): FundsFlowData => {
             markerEnd: {
                 type: MarkerType.Arrow,
             }
-        } as Edge;
+        };
     });
     return {
         nodes: Object.values(nodesDict),
@@ -65,5 +65,5 @@ export const useFundsFlow = (): FundsFlowData => {
         nodes: groupLayout.nodes,
         edges: groupLayout.edges,
         isLoading: isFetching
-    } as FundsFlowData;
+    };
 };
